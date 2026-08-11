@@ -35,7 +35,7 @@ body {
   color: var(--primary-color);
 }
 
-.zeiten {
+.zeitene {
   margin-top: 4rem;
 }
 
@@ -138,6 +138,43 @@ h1 {
   gap: 1rem;
 }
 
+.para {
+  justify-content: space-between;
+  display: flex;
+  width: 15rem;
+}
+
+.zeiten {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.time .h2 {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.day {
+  color: var(--text-color);
+}
+
+.open {
+  background: url(./images/image4.webp);
+  background-position: center;
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("./images/image4.webp");
+  margin-top: 3rem;
+  padding: 2rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 @media only screen and (min-width: 600px) {
   .überschrift {
     font-size: 4rem;
@@ -181,6 +218,25 @@ h1 {
     grid-template-columns: 1fr 1fr;
     margin-top: 6rem;
     align-items: center;
+  }
+
+  .time .h2 {
+    font-size: 2rem;
+  }
+
+  .para {
+    font-size: 1.2rem;
+    width: 20rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .zeiten {
+    margin-top: 3rem;
+  }
+
+  .open {
+    margin-top: 8rem;
+    padding: 6rem;
   }
 }
 
