@@ -1,6 +1,8 @@
+/* 1. Globaler Reset für sauberere Berechnungen */
 * {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Verhindert, dass Padding Layouts sprengt */
 }
 
 html {
@@ -15,6 +17,7 @@ body {
   --text-color: #ddd;
 }
 
+/* --- NAVIGATION --- */
 .nav {
   display: flex;
   align-items: center;
@@ -35,10 +38,7 @@ body {
   color: var(--primary-color);
 }
 
-.zeitene {
-  margin-top: 4rem;
-}
-
+/* --- HERO --- */
 .hero {
   display: flex;
   height: calc(100vh - 5rem);
@@ -56,7 +56,6 @@ body {
 
 h1 {
   font-size: 3rem;
-
   line-height: 3rem;
 }
 
@@ -81,10 +80,7 @@ h1 {
   color: var(--primary-color);
 }
 
-.text {
-  font-size: 0.5rem;
-}
-
+/* --- TYPOGRAFIE & LAYOUT --- */
 .h2 {
   text-transform: uppercase;
   text-decoration: underline;
@@ -92,11 +88,13 @@ h1 {
   margin: 2rem 0 1rem 0;
 }
 
+/* Doppelte Definition entfernt und bereinigt */
 .text {
   color: var(--text-color);
   font-size: 0.9rem;
 }
 
+.zeitene,
 .ace {
   margin-top: 2rem;
 }
@@ -104,44 +102,47 @@ h1 {
 .section {
   display: grid;
   gap: 2rem;
-}
-
-.section {
   margin: 0 auto;
   max-width: 85%;
 }
 
+/* --- BILDER-GALERIE (KORRIGIERT) --- */
 .imageses {
   width: 100%;
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
-.images {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Flex-Verhalten für die Bild-Container definiert */
+.imageses > * {
+  flex: 1;
+  /* Jedes Element teilt sich den Platz gleichmäßig */
 }
 
 .large {
-  min-width: 50%;
+  flex: 2; /* Das große Bild nimmt doppelt so viel Platz ein */
 }
 
 .bilder {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-}
-
-.imageses,
-.bilder {
   gap: 1rem;
 }
 
+/* Verhindert, dass Bilder verzerrt werden oder ausbrechen */
+.images {
+  width: 100%;
+  height: 100%;
+  max-height: 400px; /* Begrenzt die Höhe auf großen Bildschirmen */
+  object-fit: cover;
+}
+
+/* --- ZEITEN & KONTAKT --- */
 .para {
   justify-content: space-between;
   display: flex;
-  width: 15rem;
+  width: 100%; /* Flexibler auf großen Screens */
+  max-width: 20rem;
 }
 
 .zeiten {
@@ -164,15 +165,54 @@ h1 {
 }
 
 .open {
-  background: url(./images/image4.webp);
-  background-position: center;
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url("./images/image4.webp");
   margin-top: 3rem;
   padding: 2rem;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 20rem;
+}
+
+.contact-buttons {
+  gap: 1rem;
+  margin-top: 1rem;
+  display: flex;
+}
+
+.button2 {
+  background-color: transparent;
+  color: var(--primary-color);
+  text-decoration: none;
+  border: 2px solid var(--primary-color);
+  padding: 1rem 2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.button2:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.map-image {
+  object-fit: cover;
 }
 
 @media only screen and (min-width: 600px) {
@@ -180,20 +220,16 @@ h1 {
     font-size: 4rem;
     line-height: 4rem;
   }
-
   .button {
     padding: 1.5rem 3rem;
   }
-
   .nav {
     font-size: 1.2rem;
     gap: 3rem;
   }
-
   .h2 {
     font-size: 2rem;
   }
-
   .text {
     font-size: 1rem;
   }
@@ -204,12 +240,10 @@ h1 {
     font-size: 5rem;
     line-height: 5rem;
   }
-
   .nav {
     gap: 4rem;
     font-size: 1.4rem;
   }
-
   .text {
     font-size: 1.2rem;
   }
@@ -217,23 +251,19 @@ h1 {
   .section {
     grid-template-columns: 1fr 1fr;
     margin-top: 6rem;
-    align-items: center;
+    align-items: stretch; /* Dehnt Inhalt für symmetrische Optik */
   }
 
   .time .h2 {
     font-size: 2rem;
   }
-
   .para {
     font-size: 1.2rem;
-    width: 20rem;
     margin-bottom: 0.5rem;
   }
-
   .zeiten {
     margin-top: 3rem;
   }
-
   .open {
     margin-top: 8rem;
     padding: 6rem;
