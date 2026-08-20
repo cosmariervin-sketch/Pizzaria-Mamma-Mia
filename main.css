@@ -63,18 +63,23 @@ h1 {
 }
 
 .button {
-  display: inline-block;
+  display: flex;
   text-decoration: none;
   background-color: var(--primary-color);
   padding: 1rem 2rem;
   color: #fff;
   border: 2px solid var(--primary-color);
   transition: all 0.5s ease-in-out;
+  max-width: fit-content;
 }
 
 .button:hover {
   background-color: transparent;
   color: var(--primary-color);
+}
+
+.button2{
+  display: inline-block;
 }
 
 .h2 {
@@ -160,17 +165,12 @@ h1 {
   background-repeat: no-repeat;
 }
 
-.contact-info {
+.contact{
   display: flex;
   flex-direction: column;
 }
 
-.contact {
-  margin-top: 3rem;
-}
-
-.contact .button2 {
-  background-color: transparent;
+.button2 {
   color: var(--primary-color);
   text-decoration: none;
   border: 2px solid var(--primary-color);
@@ -183,20 +183,17 @@ h1 {
   color: #fff;
 }
 
-.contact-images {
-  max-width: 20rem
-}
-
 .contact-buttons {
   margin-top: 2rem;
 }
+
 
 @media only screen and (min-width: 600px) {
   .überschrift {
     font-size: 4rem;
     line-height: 4rem;
   }
-  .button {
+  .button, .button2{
     padding: 1.5rem 3rem;
   }
   .nav {
