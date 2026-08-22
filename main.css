@@ -8,12 +8,26 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   background-color: #2c2b2b;
   color: #fff;
   font-family: "Courier New", Courier, monospace;
   --primary-color: #ff3030;
   --text-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav {
@@ -25,14 +39,14 @@ body {
   height: 5rem;
 }
 
-.nav-item {
+.nav-item, .footer-text {
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.3s ease-in-out;
   color: #fff;
 }
 
-.nav-item:hover {
+.nav-item:hover, .footer-text {
   color: var(--primary-color);
 }
 
@@ -165,7 +179,7 @@ h1 {
   background-repeat: no-repeat;
 }
 
-.contact{
+.contact-info{
   display: flex;
   flex-direction: column;
 }
@@ -178,13 +192,45 @@ h1 {
   transition: all 0.3s ease-in-out;
 }
 
+.contact{
+  max-width: 20rem;
+}
+
 .button2:hover {
   background-color: var(--primary-color);
   color: #fff;
 }
 
-.contact-buttons {
+.footer{
+  background-color: #303030;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-top: 2rem;
+  font-size: 0,8rem;
+}
+
+.footer-links{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-text{
+  display:flex;
+  text-decoration: none;
+  color: #fff;
+}
+
+.copyright{
+  margin-top: 1rem;
+  color: var(--text-color);
 }
 
 
@@ -196,9 +242,12 @@ h1 {
   .button, .button2{
     padding: 1.5rem 3rem;
   }
-  .nav {
+  .nav, .footer-link {
     font-size: 1.2rem;
     gap: 3rem;
+  }
+  .footer-links{
+    flex-direction: row;
   }
   .h2 {
     font-size: 2rem;
@@ -206,6 +255,7 @@ h1 {
   .text {
     font-size: 1rem;
   }
+
 }
 
 @media only screen and (min-width: 1000px) {
@@ -213,9 +263,17 @@ h1 {
     font-size: 5rem;
     line-height: 5rem;
   }
-  .nav {
+  .footer{
+    margin-top: 6rem;
+  }
+  .nav, .footer-links{
     gap: 4rem;
     font-size: 1.4rem;
+  }
+  .footer{
+    margin-top: 4rem;
+    padding: 3rem 0;
+    gap: 3rem;
   }
   .text {
     font-size: 1.2rem;
